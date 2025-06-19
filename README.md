@@ -1,149 +1,124 @@
-# Weather Map App
+# 🌍 Weather Map App
 
-A responsive React.js application that displays weather information for cities around the world on an interactive Mapbox map.
+A responsive React + TypeScript application that displays current and next-day weather forecasts for 20 random cities on a Mapbox-powered interactive world map.
 
-## Features
+## 🚀 Features
 
-- **Interactive Mapbox Map**: Powered by Mapbox GL JS with custom markers for 20 cities worldwide
-- **City Search**: Real-time filtering of cities by name or country
-- **Weather Display**: Detailed weather information including current conditions and 2-day forecast
-- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
-- **Error Handling**: Graceful fallback when map fails to load
-- **TypeScript**: Fully typed for better development experience
+- 🌎 Interactive Map using Mapbox GL JS
+- 🌤️ Weather forecast for today and tomorrow
+- 🏙️ Sidebar with 20 random cities from across the world
+- 🔍 Real-time search input to filter cities
+- 📍 Clickable map markers for each city
+- 💬 Popups displaying weather details when marker icons are clicked
+- 📱 Fully responsive design for mobile, tablet, and desktop
+- ⚡ Built with React + TypeScript
+- 🚀 Deployed on GitHub Pages
 
-## Technologies Used
+## 🛠️ Tech Stack
 
-- React.js 18
+- React (with Hooks)
 - TypeScript
-- Next.js 14
-- **Mapbox GL JS** (as requested)
-- Tailwind CSS
-- Lucide React (icons)
-- shadcn/ui components
+- Mapbox GL JS
+- OpenWeatherMap API
+- Vite
+- CSS / SCSS
+- GitHub Pages for deployment
 
-## Setup Instructions
+## 📂 Folder Structure
 
-1. **Clone the repository**
-   \`\`\`bash
-   git clone <your-repo-url>
-   cd weather-map-app
-   \`\`\`
+weather-map/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/         # Reusable components
+│   ├── data/               # City data (name, coordinates)
+│   ├── services/           # Weather and map services
+│   ├── types/              # TypeScript interfaces and types
+│   ├── App.tsx             # Main app logic
+│   └── main.tsx            # App entry point
+├── .env                    # API keys
+├── package.json
+├── tsconfig.json
+└── README.md
 
-2. **Install dependencies**
-   \`\`\`bash
+## 📦 Installation
+
+To run the project locally:
+
+1. Clone the repository:
+   git clone https://github.com/Dereelcoder1/weather-map.git
+
+2. Navigate to the project directory:
+   cd weather-map
+
+3. Install dependencies:
    npm install
-   \`\`\`
 
-3. **Set up Mapbox (REQUIRED for full functionality)**
-   - Get a free API key from [Mapbox](https://www.mapbox.com/)
-   - In \`app/page.tsx\`, replace this line:
-     \`\`\`typescript
-     mapboxgl.accessToken = "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"
-     \`\`\`
-   - With your actual Mapbox token:
-     \`\`\`typescript
-     mapboxgl.accessToken = 'your-actual-mapbox-token-here'
-     \`\`\`
-
-4. **Set up Weather API (Optional)**
-   - The app currently uses mock weather data
-   - To use real weather data, sign up for [OpenWeatherMap API](https://openweathermap.org/api)
-   - Replace the mock data in the \`fetchWeatherData\` function
-
-5. **Run the development server**
-   \`\`\`bash
+4. Start the development server:
    npm run dev
-   \`\`\`
 
-6. **Build for production**
-   \`\`\`bash
+5. Visit http://localhost:5173/ in your browser
+
+## 🔐 Environment Variables
+
+You can get your keys from:
+- Mapbox: https://account.mapbox.com/
+- OpenWeatherMap: https://home.openweathermap.org/api_keys
+
+## 📤 Deployment
+
+The project is deployed using GitHub Pages.
+
+Make sure your package.json contains:
+
+"homepage": "https://dereelcoder1.github.io/weather-map/",
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
+}
+
+To deploy:
+
+1. Install gh-pages:
+   npm install --save gh-pages
+
+2. Build and deploy:
    npm run build
-   \`\`\`
+   npm run deploy
 
-## Error Handling
+## 💡 How It Works
 
-The app includes comprehensive error handling:
+- The sidebar loads 20 pre-selected cities.
+- Typing into the input filters the visible list of cities.
+- Clicking a city zooms the map to its location and shows an info icon.
+- Clicking the info icon displays a popup with:
+  - Today's weather
+  - Tomorrow's weather
+  - Temperature, conditions, and location name
 
-- **Map Loading Errors**: Shows detailed error messages and recovery options
-- **Token Issues**: Specific guidance for authentication problems
-- **Network Problems**: Graceful fallback when map services are unavailable
-- **Fallback Mode**: Weather features work even if map fails to load
+## ✅ Requirements Checklist
 
-## Mapbox Integration
+- ✅ Built with React.js and TypeScript
+- ✅ Deployed live
+- ✅ Mapbox integrated
+- ✅ Displays 20 random cities
+- ✅ Search/filter functionality
+- ✅ City markers on the map
+- ✅ Weather popup with today/tomorrow forecast
+- ✅ Responsive on all screen sizes
+- ✅ Public GitHub repository
 
-This app uses **Mapbox GL JS** as specifically requested:
+## 👤 Author
 
-- **Dynamic Loading**: Mapbox is loaded from CDN to avoid module issues
-- **Comprehensive Error Handling**: Detailed error messages for troubleshooting
-- **Demo Token**: Includes a working demo token for testing (limited usage)
-- **Production Ready**: Easy token replacement for production deployment
+Akorede Tolani Temidayo  
+GitHub: https://github.com/Dereelcoder1
 
-## Deployment
+## 📃 License
 
-### GitHub Pages
-1. Update the repository name in \`next.config.js\`
-2. Add your Mapbox token (recommended)
-3. Run: \`npm run deploy\`
+This project is licensed under the MIT License.
 
-### Vercel
-1. Connect your GitHub repository to Vercel
-2. Add your Mapbox token to the code
-3. Deploy automatically on push
+## 📬 Feedback
 
-### Heroku
-1. Add a \`Procfile\` with: \`web: npm start\`
-2. Add your Mapbox token to the code
-3. Deploy using Heroku CLI or GitHub integration
+For issues or feature requests, feel free to open an issue on the GitHub repository:
 
-## Usage
-
-1. **Browse Cities**: Use the sidebar to view all 20 cities
-2. **Search**: Type in the search box to filter cities by name or country
-3. **Select City**: Click on a city name to navigate to it on the map
-4. **View Weather**: Click on map markers to see detailed weather information
-5. **Mobile**: Toggle the sidebar using the arrow button on mobile devices
-
-## Troubleshooting
-
-If you see a map error:
-1. Check the browser console for detailed error messages
-2. Verify your Mapbox token is valid
-3. Ensure you have internet connectivity
-4. Try refreshing the page
-
-The weather features will continue to work even if the map fails to load.
-
-## City List
-
-The app includes weather data for these 20 cities:
-- New York, USA
-- London, UK
-- Tokyo, Japan
-- Paris, France
-- Sydney, Australia
-- Dubai, UAE
-- Singapore
-- Mumbai, India
-- São Paulo, Brazil
-- Cairo, Egypt
-- Moscow, Russia
-- Beijing, China
-- Lagos, Nigeria
-- Mexico City, Mexico
-- Istanbul, Turkey
-- Bangkok, Thailand
-- Buenos Aires, Argentina
-- Toronto, Canada
-- Cape Town, South Africa
-- Seoul, South Korea
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## License
-
-MIT License - feel free to use this project for your own purposes.
+https://github.com/Dereelcoder1/weather-map/issues
